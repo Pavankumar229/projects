@@ -1,0 +1,63 @@
+import java.util.*;
+import java.util.Vector;
+class Task{
+	Vector<String> arr=new Vector<>();
+	void def(){
+		System.out.println("1-create task:");
+		System.out.println("2-delete task:");
+		System.out.println("3-list task:");
+		System.out.println("4-quit:");
+	}
+	
+	void create_taks(String a) {
+		arr.add(a);	
+	}
+	void remove_task(int a) {
+		arr.remove(a-1);
+	}	
+	void list() {
+		System.out.println(arr);
+	}
+	void quit() {
+		System.out.println("App closed.");
+	}	
+}
+public class Task_manager extends Task{
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		Task t1=new Task();
+		
+		boolean quit=false;
+		boolean quitt=false;
+		
+		while(quit == false) {
+			t1.def();
+			int n= sc.nextInt();
+			if(n==1) {
+				System.out.println("Enter the task:");
+				sc.nextLine();
+				String s=sc.nextLine();
+				t1.create_taks(s);
+			}
+			else if(n==2) {
+				System.out.println("Enter the no of task to be deleted");
+				int a=sc.nextInt();
+				t1.remove_task(a);	
+			}
+			else if(n==3) {
+				t1.list();
+			}
+			else if(n==4) {
+				t1.quit();
+				 quitt=true;
+			}		
+			quit=quitt;	
+		}
+		sc.close();
+		
+
+	}
+
+}
